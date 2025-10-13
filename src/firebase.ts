@@ -10,5 +10,20 @@ const firebaseConfig = {
   appId: import.meta.env.PUBLIC_FIREBASE_APP_ID,
 };
 
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+let db = null;
+
+// Only initialize Firebase if we have a projectId (prevents runtime requests to projects/undefined/...)
+if (firebaseConfig.projectId) {
+  try {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.warn('Firebase initialization failed:', err);
+  }
+} else {
+  // eslint-disable-next-line no-console
+  console.warn('Firebase projectId is not defined. Firestore will not be initialized.');
+}
+
+export { db };

@@ -18,6 +18,16 @@ const LikeButton = () => {
       setIsLiked(storedIsLiked === "true");
     }
 
+    // If Firestore isn't initialized, skip realtime updates
+    if (!db) {
+      // Try to read likes from localStorage as a fallback
+      const localLikes = localStorage.getItem("websiteLikes");
+      if (localLikes) setLikes(Number(localLikes));
+      // eslint-disable-next-line no-console
+      console.warn("Firestore is not initialized. Skipping realtime updates.");
+      return;
+    }
+
     // Listen for realtime updates from Firestore
     const likeDocRef = doc(db, "likes", "counter");
     const unsubscribe = onSnapshot(likeDocRef, (docSnap) => {
@@ -27,6 +37,7 @@ const LikeButton = () => {
         setAnimateLikes(true);
         setTimeout(() => setAnimateLikes(false), 300);
       } else {
+        // eslint-disable-next-line no-console
         console.log("Document does not exist.");
       }
     });
@@ -51,10 +62,18 @@ const LikeButton = () => {
 
     try {
       setIsProcessing(true);
-      const likeDocRef = doc(db, "likes", "counter");
-      await updateDoc(likeDocRef, {
-        likes: increment(1),
-      });
+      if (!db) {
+        // Fallback: increment localStorage value
+        const current = Number(localStorage.getItem("websiteLikes") || "0");
+        const updated = current + 1;
+        localStorage.setItem("websiteLikes", String(updated));
+        setLikes(updated);
+      } else {
+        const likeDocRef = doc(db, "likes", "counter");
+        await updateDoc(likeDocRef, {
+          likes: increment(1),
+        });
+      }
       setIsLiked(true);
       localStorage.setItem("websiteIsLiked", "true");
       triggerLikeAnimation();
