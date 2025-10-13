@@ -11,7 +11,7 @@ import SkillsList from "../React/SkillsList.tsx";
       <!-- 🧑‍💻 Profile Image -->
       <div class="flex-shrink-0">
         <img
-          src="/soulaymen.jpg"
+          src={import.meta.env.BASE_URL + "soulaymen.jpg"}
           alt="Soulaymen Omrani portrait"
           class="rounded-2xl w-48 h-48 md:w-64 md:h-64 object-cover border border-[var(--white-icon-tr)] shadow-lg hover:scale-105 transition-transform duration-500"
         />
@@ -35,7 +35,7 @@ import SkillsList from "../React/SkillsList.tsx";
         <!-- 🧾 Download CV Button -->
         <div class="flex gap-3 pt-4">
           <a
-            href="/SoulaymenOMRANII_CV.pdf"
+            href={import.meta.env.BASE_URL + "SoulaymenOMRANII_CV.pdf"}
             download
             class="inline-flex items-center gap-2 bg-[var(--white-icon-tr)] text-white px-4 py-2 rounded-lg border border-[var(--white-icon-tr)] hover:bg-[var(--white-icon)] hover:text-[var(--background)] transition-all duration-300"
           >
