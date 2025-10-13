@@ -7,6 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "astro": "astro"
   },
   "dependencies": {
@@ -25,6 +27,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.7.2",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1"
   }
