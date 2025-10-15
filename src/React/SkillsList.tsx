@@ -21,6 +21,17 @@ const CategoryIcons = {
       <path d="M7 4V20H17V4H7ZM6 2H18C18.5523 2 19 2.44772 19 3V21C19 21.5523 18.5523 22 18 22H6C5.44772 22 5 21.5523 5 21V3C5 2.44772 5.44772 2 6 2ZM12 17C12.5523 17 13 17.4477 13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17Z"></path>
     </svg>
   ),
+  "Embedded Systems & IoT": (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="w-6 h-6 text-[var(--sec)] opacity-70"
+    >
+      <path d="M12 2C6.486 2 2 6.486 2 12C2 17.514 6.486 22 12 22C17.514 22 22 17.514 22 12C22 6.486 17.514 2 12 2ZM13 19.931V18H11V19.931C7.606 19.44 4.56 16.394 4.069 13H6V11H4.069C4.56 7.606 7.606 4.56 11 4.069V6H13V4.069C16.394 4.56 19.44 7.606 19.931 11H18V13H19.931C19.44 16.394 16.394 19.44 13 19.931Z"></path>
+      <circle cx="12" cy="12" r="2.5"></circle>
+    </svg>
+  ),
   "UI/UX Design & Prototyping": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -38,18 +49,24 @@ const SkillsList = () => {
 
   const skills = {
     "Web Development": [
-      "Single Page Applications (SPAs)",
-      "Landing pages and business websites",
-      "Portfolio websites",
+      "Responsive websites and modern UIs with Astro, React, and TailwindCSS",
+      "Integration of APIs and backend services",
+      "SEO and performance optimization",
     ],
     "Mobile Development": [
-      "Mobile-friendly web apps",
-      "React Native mobile apps",
+      "Cross-platform mobile apps using React Native",
+      "Progressive Web Apps (PWA)",
+      "Mobile-first UX and responsive layouts",
+    ],
+    "Embedded Systems & IoT": [
+      "Design and programming of microcontrollers (Arduino, ESP32, STM32)",
+      "IoT system integration with sensors, Wi-Fi, and MQTT protocols",
+      "Smart systems like connected solar panels, traffic, and parking automation",
     ],
     "UI/UX Design & Prototyping": [
-      "UI design with Figma & Canva",
-      "UX research & improvements",
-      "Prototyping for websites & mobile apps",
+      "Interface design and prototyping using Figma & Canva",
+      "User experience research and improvements",
+      "Wireframing and interactive design systems",
     ],
   };
 
